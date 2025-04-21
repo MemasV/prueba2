@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<meta property="og:title" content="Lou Andrea Vivanco Monreal" />
+  <meta property="og:description" content="Agente Profesional de Seguros | Cotiza, asegura, protege." />
+  <meta property="og:image" content="https://i.imgur.com/zJt8ifT.png" />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Agente Profesional de Seguros</title>
+  <title>Cotiza, asegura, protege.</title>
   <style>
     .top-bar {
       width: 100%;
@@ -42,7 +45,7 @@
       --terracota: #D2957A;
       --menta-fuerte: #6BAF90;
       --terracota-fuerte: #D2957A;
-      --terracota-clara: rgba(255, 245, 240, 0.45);
+      --terracota-clara: #eec5b330;
       --menta-clara: #E5F5ED;
       --menta: #A3C9A8;
       --gris-claro: #D9D9D9;
@@ -89,7 +92,7 @@
       border-radius: 50%;
       overflow: hidden;
       margin-top: 40px;
-      border: 4px solid var(--terracota);
+      border: 4px solid var(--menta);
     }
 
     .profile-img img {
@@ -101,7 +104,9 @@
 
     h1 {
       margin: 20px 0 5px;
-      font-size: 24px;
+      white-space: nowrap; 
+      font-size: 25px; 
+      font-family: 'Great Vibes', cursive;
       font-weight: bold;
       text-align: center;
       color: var(--texto);
@@ -109,7 +114,7 @@
 
     h2 {
       margin: 0 0 20px;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: normal;
       letter-spacing: 1px;
       text-align: center;
@@ -117,7 +122,7 @@
     }
 
     .tagline {
-      font-size: 14px;
+      font-size: 16px;
       font-style: italic;
       margin-bottom: 30px;
       text-align: center;
@@ -134,6 +139,7 @@
       border-radius: 30px;
       text-align: center;
       font-size: 16px;
+      font-weight: bold;
       color: var(--terracota-fuerte);
       background-color: var(--terracota-clara);
       text-decoration: none;
@@ -156,7 +162,7 @@
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 35px;
     }
 
     .social-links a {
@@ -165,8 +171,8 @@
       font-size: 20px;
     }
       .icon {
-      width: 28px;
-      height: 28px;
+      width: 35px;
+      height: 35px;
       filter: brightness(0.85) contrast(1.5) saturate(1.5);
     }
 
@@ -176,12 +182,13 @@
 <body>
   <header class="top-bar">
     <img src="logo.png" alt="Logo" class="logo">
+    <span style="color: white; font-size: 13px; font-weight: 500; font-family: 'Raleway', sans-serif; padding-right: 8px; text-align: right;">Planeación patrimonial y financiera<br>con enfoque humano y profesional</span>
 </header>
   <div class="container">
     <div class="profile-img">
       <img src="foto-de-lou.jpg" alt="Lou Vivanco">
     </div>
-    <h1 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 20px; font-family: 'Great Vibes', cursive;">Lou Andrea Vivanco Monreal</h1>
+    <h1>Lou Andrea Vivanco Monreal</h1>
     <h2>Agente Profesional de Seguros</h2>
     <div class="tagline">
       Asegura hoy lo que más valoras, planea el mañana con <strong>certeza</strong>.
@@ -206,16 +213,8 @@
             <img src="contacto.png" class="icon" alt="Guardar contacto">
           </a>
         </div>
-        <p style="font-size: 11px; opacity: 0.8; margin-top: 5px;">Planeación patrimonial y financiera con enfoque humano y profesional.</p>
+        <p style="font-size: 11px; opacity: 0.8; margin-top: 5px;">Planeación patrimonial y financiera con enfoque humano y profesional</p>
       </div>
     </div>
-<script>
-    function toggleMenu() {
-      const buttons = document.querySelectorAll('.button');
-      buttons.forEach(btn => {
-        btn.style.display = (btn.style.display === 'none') ? 'block' : 'none';
-      });
-    }
-  </script>
 </body>
 </html>
