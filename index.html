@@ -11,6 +11,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Lou Andrea Vivanco Monreal</title>
   <style>
+    .container, .profile-img, h1, h2, .tagline, .button {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.container { animation-delay: 0.2s; }
+.profile-img { animation-delay: 0.4s; }
+h1 { animation-delay: 0.6s; }
+h2 { animation-delay: 0.7s; }
+.tagline { animation-delay: 0.8s; }
+.button:nth-of-type(1) { animation-delay: 0.9s; }
+.button:nth-of-type(2) { animation-delay: 1s; }
+.button:nth-of-type(3) { animation-delay: 1.1s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.top-bar {
+  /* lo que ya tienes... */
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInDown 0.8s ease forwards;
+  animation-delay: 0.1s;
+}
+
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
     .top-bar {
       width: 100%;
       max-width: 420px;
@@ -177,7 +215,118 @@
       filter: brightness(0.85) contrast(1.5) saturate(1.5);
     }
 
-    
+    .modal {
+  display: none;
+  position: fixed;
+  top: 60px;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 99;
+  overflow-y: auto;
+  padding: 20px;
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  max-width: 420px;
+  margin: auto;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  color: var(--texto);
+}
+
+.modal-content h3 {
+  color: var(--terracota-fuerte);
+  text-align: center;
+  margin-top: 0;
+}
+
+.modal-content .close {
+  font-size: 35px;
+  float: right;
+  cursor: pointer;
+  color: var(--terracota);
+}
+.modal {
+  display: none;
+  position: fixed;
+  top: 60px;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  z-index: 99;
+  overflow: hidden;
+  padding: 0 10px;
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  max-width: 420px;
+  margin: auto;
+  background: #fff;
+  border-radius: 20px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  color: var(--texto);
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-content.animado {
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-content h3 {
+  color: var(--terracota-fuerte);
+  text-align: center;
+  margin: 15px 0;
+}
+
+.modal-img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.modal-texto {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--texto);
+}
+
+.scroll-indicator {
+  text-align: center;
+  font-size: 14px;
+  color: var(--menta-fuerte); /* resalta y va con la paleta */
+  padding: 8px 0;
+  position: sticky;
+  bottom: 15px; /* subido para que no se pegue al footer */
+  background-color: white;
+  font-weight: bold;
+  display: none;
+  z-index: 10;
+}
+
+
   </style>
 </head>
 <body>
@@ -195,26 +344,126 @@
       Asegura hoy lo que más valoras, planea el mañana con <strong>certeza</strong>.
     </div>
 
-    <a href="#" class="button">Sobre mí</a>
-    <a href="#" class="button">Servicios a personas físicas</a>
-    <a href="#" class="button">Servicios a personas morales</a>
+    <a href="javascript:void(0)" class="button" onclick="abrirModal('modal-sobre-mi')">Sobre mí</a>
+<a href="javascript:void(0)" class="button" onclick="abrirModal('modal-personas-fisicas')">Servicios a personas físicas</a>
+<a href="javascript:void(0)" class="button" onclick="abrirModal('modal-personas-morales')">Servicios a personas morales</a>
+
 
     <div class="footer" style="color: #333333;">
         <div class="social-links">
-          <a href="https://wa.me/5210000000000" title="WhatsApp">
+          <a href="https://wa.me/524777292851" title="WhatsApp" target="_blank">
             <img src="whatsapp.png" class="icon" alt="WhatsApp">
           </a>
-          <a href="mailto:lou@ejemplo.com" title="Correo electrónico">
+          <a href="mailto:louandrea91@gmail.com" title="Correo electrónico" target="_blank">
             <img src="email.png" class="icon" alt="Correo electrónico">
           </a>
-          <a href="tel:+5210000000000" title="Llamar">
+          <a href="tel:+524777292851" title="Llamar" target="_blank">
             <img src="phone.png" class="icon" alt="Llamar">
           </a>
-          <a href="contacto.vcf" title="Guardar contacto">
+          <a href="contacto.vcf" title="Guardar contacto" target="_blank">
             <img src="contacto.png" class="icon" alt="Guardar contacto">
           </a>
         </div>
       </div>
     </div>
+<!-- Modal: Sobre mí -->
+<div class="modal" id="modal-sobre-mi" onclick="cerrarSiClickFuera(event, 'modal-sobre-mi')">
+  <div class="modal-content" onscroll="verificarScroll(this)">
+    <span class="close" onclick="cerrarModal('modal-sobre-mi')">&times;</span>
+    <h3>Sobre mí</h3>
+    <div class="modal-texto">
+      <p><strong>Licenciada en Psicología | Especialista en Seguros</strong></p>
+      <p>Con 4 años de experiencia en el sector asegurador, combino mi formación en psicología con mi pasión por ayudar a las personas a proteger lo que más valoran.</p>
+      <p>Mi formación me ha brindado herramientas valiosas para comprender las emociones y necesidades de las personas, lo que me permite ofrecer un enfoque empático y personalizado en la venta de seguros.</p>
+      <p>Creo firmemente que los seguros son una herramienta esencial para brindar tranquilidad y seguridad ante lo inesperado.</p>
+      <p>Disfruto ayudar a mis clientes a identificar sus riesgos y encontrar las coberturas adecuadas que se adapten a sus vidas y sueños.</p>
+      <p>Mi objetivo es construir relaciones de confianza, donde cada cliente se sienta valorado y seguro en sus decisiones.</p>
+      <p>Estoy comprometida con el crecimiento y la evolución constante, buscando siempre mejorar mis habilidades y conocimientos para ofrecer el mejor servicio posible.</p>
+    </div>
+    <div class="scroll-indicator">⬆ Desliza para leer más ⬇</div>
+  </div>
+</div>
+
+<!-- Modal: Servicios a personas físicas -->
+<div class="modal" id="modal-personas-fisicas" onclick="cerrarSiClickFuera(event, 'modal-personas-fisicas')">
+  <div class="modal-content" onscroll="verificarScroll(this)">
+    <span class="close" onclick="cerrarModal('modal-personas-fisicas')">&times;</span>
+    <h3>Servicios a personas físicas</h3>
+    <div class="modal-texto">
+      <p>Ofrezco soluciones diseñadas para proteger tu salud, tus finanzas y tu tranquilidad:</p>
+      <ul>
+        <li>✔️ Seguro de vida</li>
+        <li>✔️ Gastos médicos mayores</li>
+        <li>✔️ Planes de ahorro e inversión</li>
+        <li>✔️ Protección para tu retiro</li>
+      </ul>
+      <p>Trabajamos juntas para identificar tus riesgos y darte una cobertura a la medida de tus necesidades y proyectos.</p>
+    </div>
+    <div class="scroll-indicator">⬆ Desliza para leer más ⬇</div>
+  </div>
+</div>
+
+<!-- Modal: Servicios a personas morales -->
+<div class="modal" id="modal-personas-morales" onclick="cerrarSiClickFuera(event, 'modal-personas-morales')">
+  <div class="modal-content" onscroll="verificarScroll(this)">
+    <span class="close" onclick="cerrarModal('modal-personas-morales')">&times;</span>
+    <h3>Servicios a personas morales</h3>
+    <div class="modal-texto">
+      <p>Apoyo a empresas a proteger su operación, su equipo humano y sus activos con:</p>
+      <ul>
+        <li>🏢 Seguro de responsabilidad civil</li>
+        <li>👥 Seguro colectivo de vida o salud</li>
+        <li>💼 Seguro patrimonial y de bienes</li>
+        <li>📈 Planes de ahorro y retiro para empleados</li>
+      </ul>
+      <p>Una estrategia de seguros sólida brinda confianza, respaldo y continuidad a cualquier organización.</p>
+    </div>
+    <div class="scroll-indicator">⬆ Desliza para leer más ⬇</div>
+  </div>
+</div>
+
+
 </body>
 </html>
+<script>
+  function abrirModal(id) {
+    const modal = document.getElementById(id);
+    const content = modal.querySelector('.modal-content');
+    content.classList.remove('animado'); // Reinicia animación
+    void content.offsetWidth; // Forzar reflow
+    content.classList.add('animado');
+    modal.style.display = 'block';
+    verificarScroll(content);
+  }
+
+  function cerrarModal(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+
+  function cerrarSiClickFuera(e, id) {
+    if (e.target.id === id) cerrarModal(id);
+  }
+
+  function verificarScroll(contenedor) {
+  const indicador = contenedor.querySelector('.scroll-indicator');
+  if (!indicador) return;
+
+  const actualizarIndicador = () => {
+    const hayScroll = contenedor.scrollHeight > contenedor.clientHeight + 5;
+    const estaAlFinal = contenedor.scrollTop + contenedor.clientHeight >= contenedor.scrollHeight - 10;
+
+    // Mostrar solo si hay scroll y no estás hasta el fondo
+    if (hayScroll && !estaAlFinal) {
+      indicador.style.display = 'block';
+    } else {
+      indicador.style.display = 'none';
+    }
+  };
+
+  // Ejecuta ahora y cada vez que el usuario se desplace
+  actualizarIndicador();
+  contenedor.removeEventListener('scroll', actualizarIndicador);
+  contenedor.addEventListener('scroll', actualizarIndicador);
+}
+
+</script>
